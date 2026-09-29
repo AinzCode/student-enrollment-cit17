@@ -1,0 +1,150 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Enrollment System</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <header class="site-header">
+        <h1>Student Enrollment System</h1>
+        <p>Student Information and Enrollment Form</p>
+    </header>
+
+    <main class="container">
+        <section class="form-card">
+            <h2>Student Enrollment Form</h2>
+            <p class="description">Please complete all required fields.</p>
+
+            <div id="successMessage" class="success" role="status"
+                 aria-live="polite" hidden></div>
+
+            <form id="enrollmentForm" novalidate>
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label for="studentId">Student ID *</label>
+                        <input type="text" id="studentId"
+                               placeholder="Enter student ID" required>
+                        <small class="error" id="studentIdError"></small>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="prefix">Prefix</label>
+                        <input type="text" id="prefix"
+                               placeholder="e.g. Mr., Ms.">
+                        <small class="error" id="prefixError"></small>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="firstName">First Name *</label>
+                        <input type="text" id="firstName"
+                               placeholder="Enter first name" required>
+                        <small class="error" id="firstNameError"></small>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="middleName">Middle Name</label>
+                        <input type="text" id="middleName"
+                               placeholder="Enter middle name">
+                        <small class="error" id="middleNameError"></small>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="lastName">Last Name *</label>
+                        <input type="text" id="lastName"
+                               placeholder="Enter last name" required>
+                        <small class="error" id="lastNameError"></small>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="suffix">Suffix</label>
+                        <input type="text" id="suffix"
+                               placeholder="e.g. Jr., III">
+                        <small class="error" id="suffixError"></small>
+                    </div>
+
+                    <div class="form-group full-width">
+                        <label for="email">Email Address *</label>
+                        <input type="email" id="email"
+                               placeholder="student@example.com" required>
+                        <small class="error" id="emailError"></small>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="course">Course *</label>
+                        <select id="course" required>
+                            <option value="">Select course</option>
+                            <option value="BSIT">BSIT</option>
+                            <option value="BSCS">BSCS</option>
+                            <option value="BMMA">BMMA</option>
+                            <option value="BSAIS">BSAIS</option>
+                        </select>
+                        <small class="error" id="courseError"></small>
+                    </div>
+
+                    <div class="form-group" id="majorGroup" hidden>
+                        <label for="major">BSIT Major *</label>
+                        <select id="major">
+                            <option value="">Select major</option>
+                            <option value="Net Sec">Net Sec</option>
+                            <option value="Web Tech">Web Tech</option>
+                            <option value="ERP">ERP</option>
+                        </select>
+                        <small class="error" id="majorError"></small>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="yearLevel">Year Level *</label>
+                        <select id="yearLevel" required>
+                            <option value="">Select year level</option>
+                            <option value="1st Year">1st Year</option>
+                            <option value="2nd Year">2nd Year</option>
+                            <option value="3rd Year">3rd Year</option>
+                        </select>
+                        <small class="error" id="yearLevelError"></small>
+                    </div>
+                </div>
+
+                <p class="required-note">* Required fields</p>
+
+                <button type="submit" class="submit-btn">
+                    Submit Enrollment
+                </button>
+            </form>
+        </section>
+
+        <section class="table-card">
+            <h2>Enrolled Students</h2>
+            <p class="description">
+                Submitted student information will appear below.
+            </p>
+
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Student ID</th>
+                            <th>Full Name</th>
+                            <th>Email</th>
+                            <th>Course / Major</th>
+                            <th>Year Level</th>
+                        </tr>
+                    </thead>
+                    <tbody id="studentTableBody">
+                        <tr id="emptyRow">
+                            <td colspan="5">No students enrolled yet.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>Student Enrollment System &copy; 2026</p>
+    </footer>
+</body>
+</html>

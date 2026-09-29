@@ -6,7 +6,7 @@ const majorSelect = document.getElementById("major");
 const successMessage = document.getElementById("successMessage");
 const tableBody = document.getElementById("studentTableBody");
 
-// Show the major dropdown only when BSIT is selected.
+
 courseSelect.addEventListener("change", () => {
     const isBSIT = courseSelect.value === "BSIT";
 
@@ -21,14 +21,14 @@ courseSelect.addEventListener("change", () => {
     clearError("course");
 });
 
-// Display an error message beside a field.
+
 function showError(field, message) {
     document.getElementById(field + "Error").textContent = message;
     document.getElementById(field).classList.add("invalid");
     document.getElementById(field).setAttribute("aria-invalid", "true");
 }
 
-// Clear an individual field's error.
+
 function clearError(field) {
     const input = document.getElementById(field);
     const error = document.getElementById(field + "Error");
@@ -38,7 +38,7 @@ function clearError(field) {
     input.removeAttribute("aria-invalid");
 }
 
-// Validate one text field by its minimum length.
+
 function validateLength(field, label, minLength, required) {
     const input = document.getElementById(field);
     const value = input.value.trim();
@@ -60,7 +60,7 @@ function validateLength(field, label, minLength, required) {
     return true;
 }
 
-// Validate the email format.
+
 function validateEmail() {
     const email = document.getElementById("email");
     const value = email.value.trim();
@@ -81,7 +81,7 @@ function validateEmail() {
     return true;
 }
 
-// Validate a dropdown.
+
 function validateSelect(field, label) {
     const input = document.getElementById(field);
 
@@ -116,7 +116,7 @@ function validateSelect(field, label) {
     });
 });
 
-// Validate the form and display submitted information.
+
 form.addEventListener("submit", (event) => {
     event.preventDefault();
     successMessage.hidden = true;
@@ -174,7 +174,7 @@ form.addEventListener("submit", (event) => {
         return;
     }
 
-    // Get the student's information.
+
     const studentId = document.getElementById("studentId").value.trim();
     const prefix = document.getElementById("prefix").value.trim();
     const firstName = document.getElementById("firstName").value.trim();
@@ -186,7 +186,6 @@ form.addEventListener("submit", (event) => {
     const major = majorSelect.value;
     const yearLevel = document.getElementById("yearLevel").value;
 
-    // Build the full name.
     const fullName = [
         prefix,
         firstName,
@@ -199,14 +198,12 @@ form.addEventListener("submit", (event) => {
         ? course + " - " + major
         : course;
 
-    // Remove the empty-state message.
     const emptyRow = document.getElementById("emptyRow");
 
     if (emptyRow) {
         emptyRow.remove();
     }
 
-    // Use textContent to display user input safely.
     const row = document.createElement("tr");
 
     [
